@@ -1,13 +1,10 @@
 import React, { Component } from "react";
 
 export default class Tablesinhvien extends Component {
-  shouldComponentUpdate(newProps, newState) {
-    console.log("this props", this.props.arrSinhVien);
-    console.log("new props", newProps.arrSinhVien);
-    if (this.props.arrSinhVien.length !== newProps.arrSinhVien.length) {
-      return true;
-    }
-    return false;
+  componentWillReceiveProps(newProps) {
+    this.setState({
+      arrSinhVien: newProps.arrSinhVien,
+    });
   }
   render() {
     const { arrSinhVien, handleDelSinhVien, handleEditSinhVien } = this.props;
